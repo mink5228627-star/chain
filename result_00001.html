@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결과 - 코드 11110</title>
+    <title>결과 - 코드 00001</title>
     <style>
-        /* 대화문 전용 깔끔한 디자인 */
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
-            background-color: #1a1a1a; /* 어두운 배경으로 몰입감 극대화 */
+            background-color: #1a1a1a;
             color: #ececec;
             display: flex;
             justify-content: center;
@@ -28,7 +27,7 @@
             margin-bottom: 50px;
         }
 
-        /* 1. 제일 위 타이틀 */
+        /*제일 위 타이틀 */
         .story-title {
             font-size: 28px;
             font-weight: 800;
@@ -36,10 +35,10 @@
             text-align: center;
             margin-bottom: 40px;
             padding-bottom: 20px;
-            border-bottom: 2px solid #4f46e5; /* 포인트 색상 선 */
+            border-bottom: 2px solid #4f46e5;
         }
 
-        /* 2. 평문 (상황 묘사, 지문) */
+        /*평문(상황 묘사, 지문) */
         .narration {
             font-size: 16px;
             color: #b0b0b0;
@@ -47,14 +46,14 @@
             font-style: italic; /* 평문은 약간 기울여서 구분 */
         }
 
-        /* 3. 대사문 전체 감싸는 틀 */
+        /* 대사문 전체 감싸는 틀 */
         .dialogue-wrap {
             margin-bottom: 25px;
             display: flex;
             flex-direction: column;
         }
 
-        /* 4. 대사문 - 화자 이름 */
+        /* 대사문 - 이름 */
         .speaker {
             font-weight: 700;
             font-size: 14px;
@@ -65,12 +64,12 @@
             width: fit-content;
         }
 
-        /* 화자별 색상 고유 지정 (예시) */
-        .speaker.system { background-color: #555; color: #fff; } /* 시스템/나레이터 */
-        .speaker.protagonist { background-color: #4f46e5; color: #fff; } /* 주인공 */
-        .speaker.npc1 { background-color: #e54646; color: #fff; } /* 생존자 A */
+        /* 화자별 색상 고유 지정  */
+        .speaker.man1 { background-color: #555; color: #fff; } /* 1자 */
+        .speaker.man2 { background-color: #4f46e5; color: #fff; } /* 2자 */
+        .speaker.man3 { background-color: #e54646; color: #fff; } /* 3자 */
 
-        /* 5. 대사문 - 실제 대사 내용 */
+        /* 5. 대사문 - 실제 대사 */
         .dialogue-text {
             font-size: 17px;
             background-color: #3d3d3d;
@@ -80,16 +79,16 @@
             position: relative;
         }
         
-        /* 주인공 대사는 오른쪽 정렬하고 싶을 때 쓰는 클래스 (선택사항) */
+        /* 주인공 대사는 오른쪽 정렬 */
         .dialogue-wrap.me {
             align-items: flex-end;
         }
         .dialogue-wrap.me .dialogue-text {
             border-radius: 10px 10px 0 10px;
-            background-color: #3730a3; /* 약간 다른 색 */
+            background-color: #3730a3;
         }
 
-        /* 6. 엔딩부 (누가 무슨 엔딩인지) */
+        /* 6. 엔딩부 */
         .ending-box {
             margin-top: 60px;
             padding: 30px;
@@ -137,7 +136,7 @@
         </p>
 
         <div class="dialogue-wrap">
-            <span class="speaker system">서하윤</span>
+            <span class="speaker man1">서하윤</span>
             <div class="dialogue-text">
                 대체 어디서부터 꼬인 거지?<br>
                 감도 오지 않는다.<br>
@@ -159,7 +158,7 @@
         </p>
 
         <div class="dialogue-wrap me">
-            <span class="speaker protagonist">이수환</span>
+            <span class="speaker man2">이수환</span>
             <div class="dialogue-text">
                 이것만은 정말 하기 싫었는데...
             </div>
