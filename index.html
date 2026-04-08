@@ -117,37 +117,42 @@
     </div>
 
     <script>
+        // 1. 페이지가 켜질 때 저장된 값을 불러와서 체크해주는 기능
+        window.onload = function() {
+            const savedResult = localStorage.getItem('savedResult');
+            if (savedResult && savedResult.length === 5) {
+                for (let i = 0; i < 5; i++) {
+                    const value = savedResult[i];
+                    // 저장된 값(0 또는 1)에 맞는 라디오 버튼을 찾아서 체크함
+                    const radio = document.querySelector(`input[name="cond${i+1}"][value="${value}"]`);
+                    if (radio) radio.checked = true;
+                }
+            }
+        };
+
         function checkResults() {
             let resultString = "";
             const totalConditions = 5;
 
             for (let i = 1; i <= totalConditions; i++) {
                 const checkedRadio = document.querySelector(`input[name="cond${i}"]:checked`);
-                
-                // 다 선택해야함
                 if (!checkedRadio) {
                     alert(`조건 ${i}을(를) 선택해주세요.`);
                     return;
                 }
-                // 숫자 이어붙이기
                 resultString += checkedRadio.value;
             }
 
-            // 모두 사는 경우는 없음
             if (resultString === "00000") {
                 alert("그런 경우는 존재하지 않습니다.");
                 return;
             }
 
+            // 2. 선택한 값을 브라우저에 저장함
             localStorage.setItem('savedResult', resultString);
 
-            // 페이지 이동
-            // 값이 '01001'이라면, 'result_01001.html' 페이지로
             const targetPage = `result_${resultString}.html`;
-            
-            window.location.href = targetPage;
-            
-            alert(`에필로그 코드 : `+ resultString +' 으로 이동합니다. 수고하셨습니다.');
+            alert(`에필로그 코드 : ` + resultString + ' 으로 이동합니다. 수고하셨습니다.');
             window.location.href = targetPage;
         }
     </script>
