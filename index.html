@@ -67,104 +67,106 @@
         .submit-btn:hover {
             background-color: #4338ca;
         }
+
+        /* 커스텀 알림창 스타일 */
+        #customAlert {
+            display: none; 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 100%; 
+            height: 100%; 
+            background: rgba(0,0,0,0.5); 
+            z-index: 1000; 
+            justify-content: center; 
+            align-items: center;
+        }
+        .alert-box {
+            background: white; 
+            padding: 30px; 
+            border-radius: 12px; 
+            text-align: center; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
+            width: 300px;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>✨ 생존자 체크 ✨</h1>
-        
         <form id="survivalForm">
-            <div class="condition-row">
-                <span class="condition-title">서하윤</span>
-                <div class="radio-group">
-                    <label><input type="radio" name="cond1" value="0"> 살았음</label>
-                    <label><input type="radio" name="cond1" value="1"> 죽었음</label>
-                </div>
-            </div>
-            <div class="condition-row">
-                <span class="condition-title">이도현</span>
-                <div class="radio-group">
-                    <label><input type="radio" name="cond2" value="0"> 살았음</label>
-                    <label><input type="radio" name="cond2" value="1"> 죽었음</label>
-                </div>
-            </div>
-            <div class="condition-row">
-                <span class="condition-title">이수환</span>
-                <div class="radio-group">
-                    <label><input type="radio" name="cond3" value="0"> 살았음</label>
-                    <label><input type="radio" name="cond3" value="1"> 죽었음</label>
-                </div>
-            </div>
-            <div class="condition-row">
-                <span class="condition-title">이시아</span>
-                <div class="radio-group">
-                    <label><input type="radio" name="cond4" value="0"> 살았음</label>
-                    <label><input type="radio" name="cond4" value="1"> 죽었음</label>
-                </div>
-            </div>
-            <div class="condition-row">
-                <span class="condition-title">김유찬</span>
-                <div class="radio-group">
-                    <label><input type="radio" name="cond5" value="0"> 살았음</label>
-                    <label><input type="radio" name="cond5" value="1"> 죽었음</label>
-                </div>
-            </div>
-
+            <div class="condition-row"><span class="condition-title">서하윤</span><div class="radio-group"><label><input type="radio" name="cond1" value="0"> 살았음</label><label><input type="radio" name="cond1" value="1"> 죽었음</label></div></div>
+            <div class="condition-row"><span class="condition-title">이도현</span><div class="radio-group"><label><input type="radio" name="cond2" value="0"> 살았음</label><label><input type="radio" name="cond2" value="1"> 죽었음</label></div></div>
+            <div class="condition-row"><span class="condition-title">이수환</span><div class="radio-group"><label><input type="radio" name="cond3" value="0"> 살았음</label><label><input type="radio" name="cond3" value="1"> 죽었음</label></div></div>
+            <div class="condition-row"><span class="condition-title">이시아</span><div class="radio-group"><label><input type="radio" name="cond4" value="0"> 살았음</label><label><input type="radio" name="cond4" value="1"> 죽었음</label></div></div>
+            <div class="condition-row"><span class="condition-title">김유찬</span><div class="radio-group"><label><input type="radio" name="cond5" value="0"> 살았음</label><label><input type="radio" name="cond5" value="1"> 죽었음</label></div></div>
             <button type="button" class="submit-btn" onclick="checkResults()">결과보기</button>
         </form>
     </div>
 
-<div id="customAlert" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
-    <div style="background:white; padding:30px; border-radius:12px; text-align:center; box-shadow:0 5px 15px rgba(0,0,0,0.2); width:300px;">
-        <p id="alertMessage" style="font-size:16px; margin-bottom:20px; color:#333;"></p>
-        <button onclick="closeAlert()" style="background:#4f46e5; color:white; border:none; padding:10px 25px; border-radius:6px; cursor:pointer; font-weight:600;">확인</button>
+    <!-- 커스텀 알림창 -->
+    <div id="customAlert">
+        <div class="alert-box">
+            <p id="alertMessage" style="font-size:16px; margin-bottom:20px; color:#333; line-height: 1.5;"></p>
+            <button id="alertBtn" style="background:#4f46e5; color:white; border:none; padding:10px 25px; border-radius:6px; cursor:pointer; font-weight:600;">확인</button>
+        </div>
     </div>
-</div>
-
-    
 
     <script>
-        // 알림창 띄우기 함수
-function showAlert(msg) {
-    document.getElementById('alertMessage').innerText = msg;
-    document.getElementById('customAlert').style.display = 'flex';
-}
+        let pendingUrl = ""; // 이동할 페이지 주소를 임시 저장
 
-// 알림창 닫기 함수
-function closeAlert() {
-    document.getElementById('customAlert').style.display = 'none';
-}
+        window.onload = function() {
+            const savedResult = localStorage.getItem('savedResult');
+            if (savedResult && savedResult.length === 5) {
+                for (let i = 0; i < 5; i++) {
+                    const value = savedResult[i];
+                    const radio = document.querySelector(`input[name="cond${i+1}"][value="${value}"]`);
+                    if (radio) radio.checked = true;
+                }
+            }
+        };
 
-function checkResults() {
-    let resultString = "";
-    const totalConditions = 5;
-    const names = ["서하윤", "이도현", "이수환", "이시아", "김유찬"];[cite: 1]
-
-    for (let i = 1; i <= totalConditions; i++) {
-        const checkedRadio = document.querySelector(`input[name="cond${i}"]:checked`);
-        if (!checkedRadio) {
-            // 브라우저 alert 대신 커스텀 showAlert 사용
-            showAlert(`${names[i-1]}의 생사여부를 선택해주세요.`);[cite: 1]
-            return;
+        // 알림창 띄우기 (이동 주소가 있으면 보관)
+        function showAlert(msg, url = "") {
+            document.getElementById('alertMessage').innerText = msg;
+            document.getElementById('customAlert').style.display = 'flex';
+            pendingUrl = url; 
         }
-        resultString += checkedRadio.value;
-    }
 
-    if (resultString === "00000") {
-        showAlert("그런 경우는 존재하지 않습니다.");
-        return;
-    }
+        // 확인 버튼 클릭 시 실행
+        document.getElementById('alertBtn').onclick = function() {
+            document.getElementById('customAlert').style.display = 'none';
+            if (pendingUrl) {
+                window.location.href = pendingUrl;
+            }
+        };
 
-    localStorage.setItem('savedResult', resultString);[cite: 1]
+        function checkResults() {
+            let resultString = "";
+            const totalConditions = 5;
+            const names = ["서하윤", "이도현", "이수환", "이시아", "김유찬"];
 
-    const targetPage = `result_${resultString}.html`;[cite: 1]
-    
-    // 이동 전 안내도 커스텀으로 하고 싶다면 이 부분을 수정하거나, 
-    // 바로 이동하게 하려면 아래 주석을 풀고 showAlert를 지우세요.
-    showAlert(`에필로그 코드 ${resultString}으로 이동합니다.`);
-    setTimeout(() => { window.location.href = targetPage; }, 1500); 
-}
+            for (let i = 1; i <= totalConditions; i++) {
+                const checkedRadio = document.querySelector(`input[name="cond${i}"]:checked`);
+                if (!checkedRadio) {
+                    showAlert(`${names[i-1]}의 생사여부를 선택해주세요.`);
+                    return;
+                }
+                resultString += checkedRadio.value;
+            }
+
+            if (resultString === "00000") {
+                showAlert("그런 경우는 존재하지 않습니다.");
+                return;
+            }
+
+            localStorage.setItem('savedResult', resultString);
+            const targetPage = `result_${resultString}.html`;
+            
+            // 결과를 확인한 후, 확인 버튼을 눌러야 이동하게 함
+            showAlert(`에필로그 코드 ${resultString}으로 이동합니다.`, targetPage);
+        }
     </script>
 </body>
 </html>
