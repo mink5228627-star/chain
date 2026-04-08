@@ -139,6 +139,8 @@
                 return;
             }
 
+            localStorage.setItem('savedResult', resultString);
+
             // 페이지 이동
             // 값이 '01001'이라면, 'result_01001.html' 페이지로
             const targetPage = `result_${resultString}.html`;
