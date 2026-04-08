@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결과 - 코드 00001</title>
+    <title>결과 - 코드 00101</title>
     <style>
         body {
             font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
@@ -70,6 +70,7 @@
         .speaker.man3 { background-color: #4f46e5; color: #fff; } /* 이수환 */
         .speaker.man4 { background-color: #aaad00; color: #fff; } /* 이시아 */
         .speaker.man5 { background-color: #3daf17; color: #fff; } /* 김유찬 */
+        .speaker.man6 { background-color: #fff; color: #000000; } /* 셀리온 */
 
 
         /* 5. 대사문 - 실제 대사 */
@@ -124,6 +125,14 @@
             background-color: #3daf17;
         }
 
+        .dialogue-wrap.man6 {
+        align-items: flex-start;
+        }
+        .dialogue-wrap.man6 .dialogue-text {
+            border-radius: 10px 10px 0 10px;
+            background-color: #000000;
+        }
+
         /* 6. 엔딩부 */
         .ending-box {
             margin-top: 60px;
@@ -164,62 +173,78 @@
 <body>
 
     <div class="story-container">
-        <div class="story-title">서하윤,이도현,이수환,이시아 생존 시 (김유찬만 사망 시)</div>
+        <div class="story-title">서하윤,이도현,김유찬 생존 시</div>
 
         <p class="narration">
-            백영기가 단칼에 베어버린 상대는 바로 김유찬.<br>
-            그 시체를 보고서 두려움에 질려버린 우리는 모두 다리에 힘이 풀려 주저앉아버렸다.
+           백영기가 살육 전차처럼 사람들을 썰고 지나간 자리엔 적막과 공포만이 자리했다.<br>
+그렇게 백영기가 돌아간 뒤, 피바다가 된 자리에 주저앉은 셋.
         </p>
 
         <div class="dialogue-wrap man1">
             <span class="speaker man1">서하윤</span>
             <div class="dialogue-text">
-                대체 어디서부터 꼬인 거지?<br>
-                감도 오지 않는다.<br>
-                이수환을 잡기 위해 펼친 그물이 어떻게 해서 저 탐정 놈이 맞게 된 것인지.<br>
-                일련의 논리가 맞지 않는다.<br>
-                설마... 이도현이 배신을 한 건가?<br>
+               어찌저찌 계획대로는 흘러갔다. <br>
+                목표였던 이수환이 죽었다.<br>
+                이대로라면... 아마, 백영기가 말한 대로 남규 오빠도 아마 돌아오겠지.<br>
+탐정이 죽은 건 아쉬운 일이지만 어쩔 수 없는 희생이었어.<br>
+그래... 이게 최선의 결과인 거야.<br>
             </div>
         </div>
 
         <p class="narration">
-            뒤늦게 이도현을 노려보지만, 소용없었다.<br>
-            지금 내가 당장 할 수 있는 거라곤...<br>
+           그렇게 천장을 보며 생각을 정리할 즈음.<br>
+이시아가 말을 꺼내기 시작했다.
             </p>
-        <p class="narration">
-            주저앉은 이수환을 향해 한걸음 성큼 다가간 서하윤. <br>
-            그대로 기계 팔인 오른팔로 이수환의 목을 부술 듯 조른다.<br>
-
-            순식간에 주마등이 보이기 시작한 이수환은 가슴팍에 손을 넣으며
-        </p>
-
-        <div class="dialogue-wrap man3">
-            <span class="speaker man3">이수환</span>
+        <div class="dialogue-wrap man4">
+            <span class="speaker man4">이시아</span>
             <div class="dialogue-text">
-                이것만은 정말 하기 싫었는데...
+               ... 두분이 이 모든 범행을 계획하신 거 맞죠?
             </div>
         </div>
 
         <p class="narration">
-            난리통에 주웠던 김유찬의 총을 꺼내 서하윤을 겨냥한다.<br>
-            그걸 보고서 이도현이 이수환을 저지하려 달려드는 순간.<br>
-            이시아가 제압된 이수환에게서 챙겨뒀던 전기충격봉으로 이도현을 기절시킨다.<br>
+집중되는 서하윤과 이도현의 시선. 반문 없이 말을 이어간다.
+            </p>
 
-            그대로 진행되는 서하윤과 이수환의 상황.<br>
+        <div class="dialogue-wrap man4">
+            <span class="speaker man4">이시아</span>
+            <div class="dialogue-text">
+               저는 옵시디언의 이시아라고 해요. 두 분께 제안할게요. 옵시디언에 들어와요.
+            </div>
+        </div>
 
-            탕! 탕! 탕! 탕!<br>
-        </p>
+ <p class="narration">
+서하윤이 잠시 고민하다 대답하려는 순간, <br>
+이도현은 바닥에 떨어진 김유찬의 총으로 이시아를 향해 서너 발을 격발한다. <br>
+이시아는 힘 빠지는 소리로 마지막 유언을 남기는데            </p>
+
+        <div class="dialogue-wrap man4">
+            <span class="speaker man4">이시아</span>
+            <div class="dialogue-text">
+              어...어라... 이게... 아닌데...
+            </div>
+        </div>
+
+
+<p class="narration">
+이도현은 그러고서 이시아의 손에 총을 쥐게 한 뒤,<br>
+ 이시아의 머리에 격발하고서 마무리한다.<br>
+ 그런 뒤 말을 하는데.        </p>
+
+
+        <div class="dialogue-wrap man2">
+            <span class="speaker man2">이도현</span>
+            <div class="dialogue-text">
+              어차피 범인은 정해졌고, 진상을 쟤밖에 모르는데 뭘 고민하는 겁니까?
+            </div>
+        </div>
 
 
         <p class="narration">
-            수 발의 총소리가 오간 뒤, 치명상을 겨우 피한 서하윤이 이수환의 목을 비틀어 죽이는 데 성공한다.<br>
-            그리고 조금 뒤, 과다 출혈로 서하윤도 사망하고 만다.<br>
-            이 모든 것의 진상을 아는 사람은 단 한 사람, 이시아 뿐.<br>
-            이도현을 제거하고서 연구소를 빠져나간다.<br>
-            과연 이수환과 서하윤. 둘은 서로를 죽이는 루프에서 빠져나올 수 있을까?<br>
+            그렇게 이도현은 서하윤을 일으켜준 뒤, 연구소 밖으로 나간다.
         </p>
 
-
+       
         <!-- 예시대사
 
         <div class="dialogue-wrap man1">
@@ -252,9 +277,10 @@
 
 
         <div class="ending-box">
-            <div class="ending-user">엔딩 코드 : 00001</div>
-            <div class="ending-name">[ 이시아 – Good End<br>
-            서하윤,이수환,이도현 – Dead End ]</div>
+            <div class="ending-user">엔딩 코드 : 00101</div>
+            <div class="ending-name">[ 이도현 – Normal End
+서하윤 – Good End
+이시아 – Dead End ]</div>
         </div>
 
         <a href="index.html" class="back-btn">처음으로 돌아가기</a>
