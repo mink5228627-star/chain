@@ -68,6 +68,20 @@
             background-color: #4338ca;
         }
 
+        .official-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0 8px;
+            margin-top: 18px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .official-links a {
+            color: #4338ca;
+            text-underline-offset: 2px;
+        }
+
         #customAlert {
             display: none; 
             position: fixed; 
@@ -102,6 +116,13 @@
             <div class="condition-row"><span class="condition-title">김유찬</span><div class="radio-group"><label><input type="radio" name="cond5" value="0"> 살았음</label><label><input type="radio" name="cond5" value="1"> 죽었음</label></div></div>
             <button type="button" class="submit-btn" onclick="checkResults()">결과보기</button>
         </form>
+        <footer>
+            <nav class="official-links" aria-label="도돌이게임즈 공식 링크">
+                <a href="https://discord.gg/GJkTDzrJxw" target="_blank" rel="noopener noreferrer" aria-label="공식 디스코드 (새 탭)">공식 디스코드</a>
+                <span aria-hidden="true">|</span>
+                <a href="https://dodorygames.com/" target="_blank" rel="noopener noreferrer" aria-label="홈페이지 (새 탭)">홈페이지</a>
+            </nav>
+        </footer>
     </div>
 
     <div id="customAlert">
